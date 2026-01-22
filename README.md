@@ -35,12 +35,13 @@ python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 
-CREATE DATABASE library_db;
-postgresql://postgres:password@localhost:5432/library_db
+## SQL
+CREATE DATABASE library_db; 
 
+postgresql://library_user:library_pass@localhost:5432/library_db
 uvicorn app.main:app --reload
 
-
+## Змiна ролi
 python -m app.cli set-role --email test@mail.com --role admin
 python -m app.cli set-role --email test@mail.com --role client
 
