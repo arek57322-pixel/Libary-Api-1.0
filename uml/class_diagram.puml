@@ -1,0 +1,49 @@
+@startuml
+
+class User {
+  id: int
+  email: str
+  password_hash: str
+  role: str
+}
+
+class Book {
+  id: int
+  title: str
+}
+
+class Author {
+  id: int
+  name: str
+}
+
+class Genre {
+  id: int
+  name: str
+}
+
+class favorites {
+  user_id: int
+  book_id: int
+}
+
+class book_authors {
+  book_id: int
+  author_id: int
+}
+
+class book_genres {
+  book_id: int
+  genre_id: int
+}
+
+User -- favorites
+Book -- favorites
+
+Book -- book_authors
+Author -- book_authors
+
+Book -- book_genres
+Genre -- book_genres
+
+@enduml
