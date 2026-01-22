@@ -38,8 +38,13 @@ pip install -r requirements.txt
 ## SQL
 CREATE DATABASE library_db; 
 
+## Оновити підключення до бази даних у app/config.py
 postgresql://library_user:library_pass@localhost:5432/library_db
+
+alembic upgrade head
 uvicorn app.main:app --reload
+
+http://127.0.0.1:8000/docs
 
 ## Змiна ролi
 python -m app.cli set-role --email test@mail.com --role admin
